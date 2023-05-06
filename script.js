@@ -1,7 +1,10 @@
 var timeEl = document.querySelector('#timer')
-var textAreaEl = document.querySelector('#textarea');
+var textAreaEl = document.querySelector('#question');
 var startButton = document.querySelector('#button')
 console.log(startButton)
+function sendMessage() {
+    timeEl.textContent = "The quiz is over!";
+}
 function countdown() {
     console.log('Start the Quiz')
     var secondsLeft = 2;
@@ -18,6 +21,11 @@ function countdown() {
     
       }, 1000);
 }
+function questions() {
+    console.log('question 1')
+    textAreaEl.textContent = "Question 1"
+}
 // use 19 for event listener click inside div for questions
 
 startButton.addEventListener("click", countdown)
+startButton.addEventListener("click", questions)
