@@ -44,7 +44,7 @@ border: 2px ridge  aqua;
 border-radius: 20px;
 text-align: center;
 }
-.questioncontainer {
+#questioncontainer {
 display: flex;
 flex-direction: column;
 Justify-content: flex-start;
@@ -72,12 +72,4 @@ border-color: aqua;
 border-radius: 20px;
 text-align: center;}
  
-/* #wanswer{
-    display: flex;
-    padding: 10px;
-    background-color: rgb(99, 13, 179);
-    font-family: Arial, Helvetica, sans-serif;
-    color: aliceblue;
-    border-color: aqua;
-    border-radius: 20px;
-    text-align: center;} */
+
