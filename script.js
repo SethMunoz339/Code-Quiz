@@ -1,13 +1,16 @@
-var timeEl = document.querySelector('#timer')
+var timeEl = document.querySelector('#timer');
 var textAreaEl = document.querySelector('#question');
-var startButton = document.querySelector('#button')
-var correctButton = document.querySelector('#answer')
-var wrongButton = document.querySelector('#answer')
+var startButton = document.querySelector('#button');
+var correctButton = document.querySelector('#answer');
+var wrongButton = document.querySelector('#answer');
+var container = document.querySelector('.questioncontainer')
 
-console.log(startButton)
-function sendMessage() {
-    timeEl.textContent = "The quiz is over!";
+function hide() {
+    document.getElementById("questioncontainer").style.visibility = "hidden";
 }
+hide()
+console.log(startButton)
+
 function countdown() {
     console.log('Start the Quiz')
     var secondsLeft = 2;
@@ -24,9 +27,14 @@ function countdown() {
     
       }, 1000);
 }
+
+function sendMessage() {
+    timeEl.textContent = "The quiz is over!";
+}
 function questions() {
     console.log('question 1')
-    // textAreaEl.textContent = "Question 1: What does js stand for?"
+    document.getElementById("questioncontainer").style.visibility = "visible";
+    
     
 }
 
@@ -43,15 +51,6 @@ textAreaEl.addEventListener("click", function(event) {
         else if(state === "wrong")
         console.log('wrong')
 }})
-// wrongButton.addEventListener("click", function(event) {
-//     var element = event.target;
-  
-//     // Check if the clicked element was a wrong answer
-//     if (element.matches ('button')) {
-//         var state = element.getAttribute("data-state");
 
-//         if (state === "wrong")
-//         console.log('wrong')
-//     }})
 startButton.addEventListener("click", countdown)
 startButton.addEventListener("click", questions)
