@@ -1,118 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="stylesheet" href=".\style.css" />
-    <title>Code Quiz</title>
+    <title>JavaScript Quiz</title>
+    <link rel="stylesheet" type="text/css" href="quiz.css">
   </head>
-
   <body>
-    <div class="buttonbox">
-        <button id="button">
-            Start the Quiz!
-        </button>
+    <div id="quiz">
+      <h1>JavaScript Quiz</h1>
+      <h2 id="question"></h2>
+      <ul id="choices"></ul>
+      <button id="start">Start Quiz</button>
     </div>
-    <div id="timer">Time Remaining:
-    </div>
-    <div id="questioncontainer">
-        <question id="question1"> Question 1: What does js stand for?
-            <button id="answer"
-            data-state="correct">
-                javaScript
-            </button>
-            <button id="answer"
-            data-state="wrong">
-                Jumpy Scorpion
-            </button>
-            <button id="answer"
-            data-state="wrong">
-                Joe's Shoes
-            </button>
-            <button id="answer"
-            data-state="wrong">
-                Jingle Bells
-            </button>
-        </question>  
-        <question id="question2" data-state="hidden"> Question 2: How do you call a function named "myFunction"?
-            <button id="answer"
-            data-state="wrong">
-                call myFunction()
-            </button>
-            <button id="answer"
-            data-state="correct">
-                myFunction()
-            </button>
-            <button id="answer"
-            data-state="wrong">
-                "hello myFunction"
-            </button>
-            <button id="answer"
-            data-state="wrong">
-                call function myFunction()
-            </button>
-        </question>
-        <question id="question3" data-state="hidden"> Question 3: 
-            <button id="answer"
-            data-state="wrong">
-                call myFunction()
-            </button>
-            <button id="answer"
-            data-state="correct">
-                myFunction()
-            </button>
-            <button id="answer"
-            data-state="wrong">
-                "hello myFunction"
-            </button>
-            <button id="answer"
-            data-state="wrong">
-                call function myFunction()
-            </button>
-        </question>                     
-        <question id="question4" data-state="hidden"> Question 4: 
-            <button id="answer"
-            data-state="wrong">
-                call myFunction()
-            </button>
-            <button id="answer"
-            data-state="correct">
-                myFunction()
-            </button>
-            <button id="answer"
-            data-state="wrong">
-                "hello myFunction"
-            </button>
-            <button id="answer"
-            data-state="wrong">
-                call function myFunction()
-            </button>
-        </question> 
-        <question id="question5" data-state="hidden"> Question 5: 
-            <button id="answer"
-            data-state="wrong">
-                call myFunction()
-            </button>
-            <button id="answer"
-            data-state="correct">
-                myFunction()
-            </button>
-            <button id="answer"
-            data-state="wrong">
-                "hello myFunction"
-            </button>
-            <button id="answer"
-            data-state="wrong">
-                call function myFunction()
-            </button>
-        </question>
-               
-    </div>
-    <div class="buttonbox">
-    <button id="endbutton">
-        End the Quiz
-    </button>
-    </div>    
-    <script src="script.js"></script>        
+
+    <script src="script.js"></script>
   </body>
+</html>
