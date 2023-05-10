@@ -51,4 +51,89 @@ const questions = [
       answer: "Wizards use a spellbook but sorcerers use a spell focus item."
     }
   ];
+
+  // Define the quiz parameters
+var quizTime = 30;  // Time in seconds
+var decreaseTime = 2;  // Time decrease in seconds for incorrect answers
+
+// Get the quiz HTML elements
+var startButton = document.getElementById("start");
+var quizDiv = document.getElementById("quiz");
+var questionText = document.getElementById("question");
+var choicesList = document.getElementById("choices");
+var timerText = document.getElementById("time");
+var correctText = document.getElementById("correct");
+var totalText = document.getElementById("total");
+// Define the beginning quiz variables
+let currentQuestion = 0;
+let score = 0;
+let timeLeft = quizTime;
+
+// Hide the quiz div at the start of the application loading or restart
+quizDiv.style.display = "none";
+
+startButton.addEventListener("click", startQuiz)
+
+function startQuiz() {
   
+  // Show the quiz div and start the timer when the Start button is clicked
+      quizDiv.style.display = "flex";
+    startButton.style.display = "none";
+    console.log('start quiz')
+    showQuestion();
+
+    // Start the timer
+    var timer = setInterval(function() {
+      timeLeft--;
+      timerText.textContent = timeLeft;
+
+      // Check if the time has run out
+      if (timeLeft <= 0) {
+        clearInterval(timer);
+        endQuiz();
+      }
+    }, 1000);
+  };
+
+// Define the quiz functions
+function showQuestion() {
+  // Clear the previous question and choices
+  questionText.textContent = "";
+  choicesList.innerHTML = "";
+
+  // Set the current question text
+  questionText.textContent = questions[currentQuestion].question;
+console.log(questions[currentQuestion].question)
+  // Add the current question choices
+  for (let i = 0; i < questions[currentQuestion].choices.length; i++) {
+    const choice = questions[currentQuestion].choices[i];
+    const choiceItem = document.createElement("li");
+    const choiceButton = document.createElement("button");
+    choiceButton.textContent = choice;
+    choiceItem.appendChild(choiceButton);
+    choicesList.appendChild(choiceItem);
+
+    // Add event listener to the choice button
+    choiceButton.addEventListener("click", function() {
+      // Check the user's answer and update the score and time left
+      if (this.textContent === questions[currentQuestion].answer) {
+        score++;
+        correctText.textContent = score;
+        console.log('correct')
+        console.log(score)
+      } else {
+        console.log('incorrect')
+        timeLeft = Math.max(0, timeLeft - decreaseTime);
+      }
+
+      // Move to the next question or end the quiz if all questions have been answered
+      currentQuestion++;
+      if (currentQuestion < questions.length) {
+        showQuestion();
+      } else {
+        endQuiz();
+      }
+    });
+  }
+}
+
