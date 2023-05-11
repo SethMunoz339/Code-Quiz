@@ -46,14 +46,65 @@ const questions = [
         "Sorcerers have more powerful spells but wizards know more spells.",
         "Wizards learn spells over time but sorcerers know all their spells automatically.",
         "Wizards use a spellbook but sorcerers use a spell focus item.",
-        "ther is no difference beyond the name."
+        "There is no difference beyond the name."
       ],
       answer: "Wizards use a spellbook but sorcerers use a spell focus item."
+    },
+    {
+      question: "What is the power that makes a druid different from the rest of the classes?",
+      choices: [
+        "Druids can add damage to attacks when they have advantage.",
+        "Druids can turn into animals.",
+        "Druids can talk to plants.",
+        "Druids can heal people without using a spell."
+      ],
+      answer: "Druids can turn into animals."
+    },
+    {
+      question: "What is the main function of a cleric?",
+      choices: [
+        "Clerics' main function is to heal party members.",
+        "Clerics' main function is to make party members more powerful.",
+        "Clerics' main function is to be front line attackers.",
+        "Clerics' main function is to cast damaging spells."
+      ],
+      answer: "Clerics' main function is to heal party members."
+    },
+    {
+      question: "What is the special ability that rogues posess?",
+      choices: [
+        "Rogues can lie, cheat, and steal.",
+        "Rogues can play instruments.",
+        "Rogues can cast damaging spells.",
+        "Rogues can use a sneak attack to cause extra damage."
+      ],
+      answer: "Rogues can use a sneak attack to cause extra damage."
+    },
+    {
+      question: "The two classes that are good at fighting and magic are...",
+      choices: [
+        "wizards and paladins.",
+        "Warlocks and rangers.",
+        "Rangers and paladins.",
+        "None of the above."
+      ],
+      answer: "Rangers and paladins."
+    },
+    {
+      question: "The most recently added class is...",
+      choices: [
+        "Warlocks.",
+        "Rangers.",
+        "Fighters.",
+        "Artificers.",
+        "Bards."
+      ],
+      answer: "Artificers."
     }
   ];
 
   // Define the quiz parameters
-var quizTime = 30;  // Time in seconds
+var quizTime = 45;  // Time in seconds
 var decreaseTime = 2;  // Time decrease in seconds for incorrect answers
 
 // Get the quiz HTML elements
