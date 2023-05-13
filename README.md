@@ -13,7 +13,7 @@ When the page opens, the user is presented with a "Start Quiz" button. When clic
 
 ## Screenshot
 
-[Screenshot of Website](https://github.com/SethMunoz339/Code-Quiz/blob/images/Screenshot.png?raw=true)
+[Screenshot of Website](https://github.com/SethMunoz339/Code-Quiz/blob/main/images/Screenshot.png?raw=true)
 
 ## URL
 
