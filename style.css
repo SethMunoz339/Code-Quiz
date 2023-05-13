@@ -168,7 +168,7 @@ background-color: darkred;
 background-color: darkred;
     }
 
-  #highscore-container {
+  .highscore-container {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
