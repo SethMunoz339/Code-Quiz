@@ -124,6 +124,7 @@ var restartButton = document.getElementById("restart");
 var highScoreList = document.getElementById("scorelist")
 var timer;
 var clearScores = document.getElementById("clear")
+var submitButton = document.getElementById("submit")
 
 // Define the beginning quiz variables
 let currentQuestion = 0;
@@ -198,7 +199,7 @@ function endQuiz() {
   // Hide the quiz section and show the game over section
   clearInterval(timer);
   quizDiv.style.display = "none";
-  gameOverDiv.style.display = "block";
+  gameOverDiv.style.display = "flex";
 
   // Display the final score
   finalScoreText.textContent = score;
@@ -229,8 +230,9 @@ function endQuiz() {
       var li=document.createElement("li")
     li.textContent = `${element.initials}-${element.score}`
     highScoreList.append(li)
+    submitButton.style.display = "none";
     }
-    }
+  }
   });
 
   // Restart the quiz
