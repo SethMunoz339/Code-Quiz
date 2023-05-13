@@ -24,6 +24,10 @@
     font-family: 'Julius Sans One', sans-serif;
     font-size: 20px;
   }
+  #total {
+    font-family: 'Julius Sans One', sans-serif;
+    font-size: 20px;
+  }
   
   li {
     font-family: 'Julius Sans One', sans-serif;
@@ -35,4 +39,38 @@
   button {font-family: 'Julius Sans One', sans-serif;}
   
   #question {font-family: 'Julius Sans One', sans-serif;}
+
+  #gameover {
+    font-family: 'Julius Sans One', sans-serif;
+    text-align: center;
+  display: none;
+  }
+
+  #highscoreform {
+    font-family: 'Julius Sans One', sans-serif;
+    margin-top: 20px;
+  }
+  
+  #highscoreform label {
+    font-family: 'Julius Sans One', sans-serif;
+    margin-right: 10px;
+  }
+
+  #restart, #highscoreform button {
+    font-family: 'Julius Sans One', sans-serif;
+    font-size: 20px;
+    padding: 10px;
+    margin: 20px;
+  }
+  
+  #highscoreform input {
+    font-family: 'Julius Sans One', sans-serif;
+    font-size: 20px;
+    padding: 5px;
+  }
+    .img-fluid{
+      height: 200px;
+      width: 200px;
+      align-content: center;
+    }
   
