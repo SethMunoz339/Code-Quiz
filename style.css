@@ -1,17 +1,41 @@
 #quiz {
-    text-align: center;
+  display: flex;
+  margin-top: 30px;
+  padding: 10px;
+  flex-direction: column;
+   align-items: center;
+   background-color: cornsilk;
+
   }
 
   #choices {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
     list-style: none;
-    padding: 0;
+    font-family: 'Julius Sans One', sans-serif;
+    font-size: 16px;
+    padding: 5px;
+    margin: 10px;
+    border: 1px solid gray;
+  border-radius: 5px;
+background-color: darkred;
   }
   
+  .startdiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
   #start  {
     font-family: 'Julius Sans One', sans-serif;
-    font-size: 20px;
+    font-size: 32px;
     padding: 10px;
     margin: 20px;
+    border: 1px solid gray;
+  border-radius: 5px;
+background-color: darkred;
   }
   
   #timer{
@@ -29,24 +53,68 @@
     font-size: 20px;
   }
   
+  #scorelist {
+    display: flex;
+    flex-direction: column;
+  }
+
   li {
     font-family: 'Julius Sans One', sans-serif;
-    display: inline-block;
+    display: flex;
     margin: 10px;
   }
+  .container{
+    background-color: black;
+    display: flex;
+    justify-content: center;}
+
+.title {justify-content: center;}
+
   h1{font-family: 'Julius Sans One', sans-serif;}
+
+  #dndbox{
+    align-items: center;
+    padding: 20px;
+    margin: 20px;
+    border: 1px solid gray;
+  border-radius: 5px;
+background-color: darkred;}
+
+
+  h2{font-family: 'Julius Sans One', sans-serif;
+    text-decoration: underline;
+  color:black
+  }
+  h3{
+    align-items: center;
+    padding: 20px;
+    margin: 20px;
+    font-family: 'Julius Sans One', sans-serif;
+    color: cornsilk;
+  }
   
-  button {font-family: 'Julius Sans One', sans-serif;}
+  button {font-family: 'Julius Sans One', sans-serif;
+  border-radius: 5px;}
   
   #question {font-family: 'Julius Sans One', sans-serif;}
 
   #gameover {
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
     font-family: 'Julius Sans One', sans-serif;
     text-align: center;
+    margin-top: 30px;
+    background-color: cornsilk;
+    padding: 10px;
   display: none;
   }
 
   #highscoreform {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
     font-family: 'Julius Sans One', sans-serif;
     margin-top: 20px;
   }
@@ -64,6 +132,7 @@
   }
   
   #highscoreform input {
+   
     font-family: 'Julius Sans One', sans-serif;
     font-size: 20px;
     padding: 5px;
@@ -72,5 +141,51 @@
       height: 200px;
       width: 200px;
       align-content: center;
+    justify-content: center;
+    margin-left: 50px;
+    margin-right: 50px;
     }
-  
+
+    #clear, #restart {
+      display: flex;
+      font-family: 'Julius Sans One', sans-serif;
+    font-size: 32px;
+    padding: 10px;
+    margin: 20px;
+    border: 1px solid gray;
+  border-radius: 5px;
+background-color: darkred;
+    }
+
+    #submit {
+      display: flex;
+      font-family: 'Julius Sans One', sans-serif;
+    font-size: 32px;
+    padding: 10px;
+    margin: 20px;
+    border: 1px solid gray;
+  border-radius: 5px;
+background-color: darkred;
+    }
+
+  #highscore-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    border-radius: 5px;
+  }
+  #hiscorelabel {
+    display: flex;
+    flex: wrap;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Julius Sans One', sans-serif;
+    background-color: cornsilk;
+    border: 1px solid gray;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 20px;}
+
+    #hsltext {
+      display: flex;
+    }
