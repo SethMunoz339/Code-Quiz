@@ -1,4 +1,4 @@
-// Define the quiz questions and answers
+
 const questions = [
     {
       question: "What is Dungeons and Dragons?",
@@ -106,6 +106,7 @@ const questions = [
   // Define the quiz parameters
 var quizTime = 45;  // Time in seconds
 var decreaseTime = 2;  // Time decrease in seconds for incorrect answers
+var maxInitialsLength = 3;  // Maximum length of initials for high score submission
 
 // Get the quiz HTML elements
 var startButton = document.getElementById("start");
@@ -115,9 +116,19 @@ var choicesList = document.getElementById("choices");
 var timerText = document.getElementById("time");
 var correctText = document.getElementById("correct");
 var totalText = document.getElementById("total");
+var gameOverDiv = document.getElementById("gameover");
+var finalScoreText = document.getElementById("finalscore");
+var initialsInput = document.getElementById("initials");
+var highScoreForm = document.getElementById("highscoreform");
+var restartButton = document.getElementById("restart");
+var highScoreList = document.getElementById("scorelist")
+var timer;
+var clearScores = document.getElementById("clear")
+
 // Define the beginning quiz variables
 let currentQuestion = 0;
 let score = 0;
+let total = 10;
 let timeLeft = quizTime;
 
 // Hide the quiz div at the start of the application loading or restart
@@ -130,22 +141,18 @@ function startQuiz() {
   // Show the quiz div and start the timer when the Start button is clicked
       quizDiv.style.display = "flex";
     startButton.style.display = "none";
-    console.log('start quiz')
     showQuestion();
 
     // Start the timer
-    var timer = setInterval(function() {
-      timeLeft--;
-      timerText.textContent = timeLeft;
-
-      // Check if the time has run out
-      if (timeLeft <= 0) {
-        clearInterval(timer);
-        endQuiz();
-      }
-    }, 1000);
+     timer = setInterval(countdown, 1000);
   };
-
+function countdown() {
+  timeLeft--;
+  timerText.textContent = timeLeft
+  if(timeLeft <= 0) {
+    endQuiz()
+  }
+}
 // Define the quiz functions
 function showQuestion() {
   // Clear the previous question and choices
@@ -154,7 +161,6 @@ function showQuestion() {
 
   // Set the current question text
   questionText.textContent = questions[currentQuestion].question;
-console.log(questions[currentQuestion].question)
   // Add the current question choices
   for (let i = 0; i < questions[currentQuestion].choices.length; i++) {
     const choice = questions[currentQuestion].choices[i];
@@ -170,11 +176,11 @@ console.log(questions[currentQuestion].question)
       if (this.textContent === questions[currentQuestion].answer) {
         score++;
         correctText.textContent = score;
-        console.log('correct')
-        console.log(score)
+        totalText.textContent = total;
+  
       } else {
-        console.log('incorrect')
-        timeLeft = Math.max(0, timeLeft - decreaseTime);
+
+        timeLeft  -=2;
       }
 
       // Move to the next question or end the quiz if all questions have been answered
@@ -188,3 +194,52 @@ console.log(questions[currentQuestion].question)
   }
 }
 
+function endQuiz() {
+  // Hide the quiz section and show the game over section
+  clearInterval(timer);
+  quizDiv.style.display = "none";
+  gameOverDiv.style.display = "block";
+
+  // Display the final score
+  finalScoreText.textContent = score;
+
+  // Create high score submission
+  highScoreForm.addEventListener("submit", function(event) {
+    event.preventDefault();
+    var initials = initialsInput.value.trim().toUpperCase();
+    if (initials.length > 0 && initials.length <= maxInitialsLength) {
+      // get high scores from storage or open a new array
+      let highScores = JSON.parse(localStorage.getItem("highScores")) || [];
+
+      // Add the new high score entry
+      var newHighScore = {
+        initials: initials,
+        score: score
+      };
+      highScores.push(newHighScore);
+
+      // Sort the high scores in descending order
+      highScores.sort((a, b) => b.score - a.score);
+
+      // Store the updated high scores in local storage
+      localStorage.setItem("highScores", JSON.stringify(highScores));
+      highScores = JSON.parse(localStorage.getItem("highScores")) || [];
+    for (let index = 0; index < 5; index++) {
+      const element = highScores[index];
+      var li=document.createElement("li")
+    li.textContent = `${element.initials}-${element.score}`
+    highScoreList.append(li)
+    }
+    }
+  });
+
+  // Restart the quiz
+  restartButton.addEventListener("click", function() {
+    
+    document.location.reload()
+  });
+}
+clearScores.addEventListener("click", function () {
+  localStorage.removeItem('highScores')
+  highScoreList.innerHTML = ""
+})
